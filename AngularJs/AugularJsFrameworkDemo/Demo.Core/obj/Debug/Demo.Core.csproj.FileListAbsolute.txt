@@ -1,0 +1,34 @@
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Demo.Core.dll.config
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Demo.Core.dll
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Demo.Core.pdb
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Castle.Core.dll
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Castle.Windsor.dll
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\EntityFramework.dll
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Castle.Core.xml
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Castle.Windsor.xml
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\EntityFramework.xml
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\obj\Debug\Demo.Core.csprojResolveAssemblyReference.cache
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\obj\Debug\Demo.Core.dll
+C:\Users\louis\Ezysure\Ezysure.PropertyNet\AngularJs\AugularJsFrameworkDemo\Demo.Core\obj\Debug\Demo.Core.pdb
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Demo.Core.dll.config
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Demo.Core.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Demo.Core.pdb
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Castle.Core.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Castle.Windsor.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\EntityFramework.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Castle.Core.xml
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\Castle.Windsor.xml
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\EntityFramework.xml
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\obj\Debug\Demo.Core.csprojResolveAssemblyReference.cache
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\obj\Debug\Demo.Core.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\obj\Debug\Demo.Core.pdb
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\MongoDB.Bson.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\MongoDB.Driver.dll
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\MongoDB.Bson.xml
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\MongoDB.Driver.xml
+C:\Users\louis\Documents\Visual Studio 2015\AngularJs\AugularJsFrameworkDemo\Demo.Core\bin\Debug\MongoDB.Driver.Core.xml

@@ -1,0 +1,35 @@
+﻿@model AugularJsFrameworkDemo.Areas.Form.Models.NormalFormViewModel
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag._NgAppModule = "form";
+    Layout = "~/Views/Shared/_LayoutNg.cshtml";
+}
+
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div data-ui-view="">
+            </div>
+        </div>
+    </div>
+</div>
+@section GlobalScripts
+{
+    <script>
+        (function (window) {
+            window.ephemeral = window.ephemeral || {};
+            @*window.ephemeral.profile = @Html.ToJson(Model.UserProfile);*@
+        }(this.window));
+    </script>
+
+}
+@section NgScripts
+{
+    @Scripts.Render("~/js/app-forms")
+}
+
+@section NgTemplates
+{
+    @Html.Partial("_tpl.normalForm")
+}

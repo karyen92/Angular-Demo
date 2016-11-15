@@ -1,0 +1,37 @@
+﻿<script type="text/ng-template" id="tpl.normalForm">
+    <form name="form" class="form-horizontal">
+        <h1>Form</h1>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">User Name</label>
+                <input name="userName" class="form-control" ng-model="model.userName" required/>
+                <div ng-show="form.userName.$submitted || form.userName.$touched">
+                    <span class="text-danger" ng-show="form.userName.$error.required">Please fill in your user name.</span>
+                    <span class="text-danger" ng-show="form.userName.$invalid">{{form.userName.$error.message}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input name="email" class="form-control" ng-model="model.email" required />
+                <div ng-show="form.email.$submitted || form.email.$touched">
+                    <span class="text-danger" ng-show="form.email.$error.required">Tell us your email.</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">Contact No</label>
+                <input  name="contactNo" class="form-control" ng-model="model.contactNo" required />
+                <div ng-show="form.contactNo.$submitted || form.contactNo.$touched">
+                    <span class="text-danger" ng-show="form.contactNo.$error.required">Please fill in your contact.</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary" ng-click="validate()">Validate !</button>
+            <button class="btn btn-default" ng-click="reset(form)">Reset</button>
+        </div>
+    </form>
+</script>

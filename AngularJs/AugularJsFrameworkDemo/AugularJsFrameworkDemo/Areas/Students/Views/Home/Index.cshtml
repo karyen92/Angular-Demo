@@ -1,0 +1,41 @@
+﻿@model AugularJsFrameworkDemo.Areas.Students.Models.StudentsHomeViewModel
+@{
+    ViewBag.Title = "Index";
+    ViewBag._NgAppModule = "demo";
+    Layout = "~/Views/Shared/_LayoutNg.cshtml";
+}
+
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div data-ui-view="">
+            </div>
+        </div>
+    </div>
+</div>
+@section GlobalScripts
+{
+    <script>
+        (function (window) {
+            window.ephemeral = window.ephemeral || {};
+            @*window.ephemeral.profile = @Html.ToJson(Model.UserProfile);*@
+            @*//window.aAa a .options = @Html.ToJson(Model.Options);*@
+        }(this.window));
+    </script>
+
+}
+@section NgScripts
+{
+    @Scripts.Render("~/js/app-students")
+}
+
+@section NgStyle{
+   @Styles.Render("~/style/app-students")
+}
+
+@section NgTemplates
+{
+    @Html.Partial("_tpl.student.list")
+    @Html.Partial("_tpl.student.view")
+    @Html.Partial("_tpl.student.add")
+}
