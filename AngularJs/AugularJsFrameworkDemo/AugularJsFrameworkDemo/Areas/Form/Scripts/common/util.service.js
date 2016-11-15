@@ -5,21 +5,21 @@
         .factory('util', [
             '$window', function () {
                 return {
-                    mergeValidationError: function mergeValidationError(formScope, respData) {
-                        console.log(formScope);
-                        console.log(respData)
-                        if (respData.errors) {
-                            for (var i in respData.errors) {
-                                for (var ind in formScope) {
-                                    if (ind.toLowerCase() == respData.errors[i].propertyName.toLowerCase()) {
-                                        formScope[ind].$invalid = true;
-                                        formScope[ind].$error.message = respData.errors[i].errorMessage;
+                    mergeValidationError: function mergeValidationError(form, data) {
+                        console.log(form);
+                        console.log(data)
+                        if (data.errors) {
+                            for (var i in data.errors) {
+                                for (var ind in form) {
+                                    if (ind.toLowerCase() == data.errors[i].propertyName.toLowerCase()) {
+                                        form[ind].$invalid = true;
+                                        form[ind].$error.message = data.errors[i].errorMessage;
                                         debugger;
                                     }
                                 }
                             }
                         }
-                        return formScope;
+                        return form;
                     }
                 }
             }
