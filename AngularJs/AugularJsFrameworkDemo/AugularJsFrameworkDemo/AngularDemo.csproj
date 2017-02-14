@@ -204,6 +204,7 @@
     <Compile Include="Apis\Students\Models\NormalFormModel.cs" />
     <Compile Include="Apis\Students\Models\StudentRequestModel.cs" />
     <Compile Include="Apis\Students\NormalFormController.cs" />
+    <Compile Include="Apis\Students\FilesController.cs" />
     <Compile Include="Apis\Students\StudentsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ComponentConfig.cs" />

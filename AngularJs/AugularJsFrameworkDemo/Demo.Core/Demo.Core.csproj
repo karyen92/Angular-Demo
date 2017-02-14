@@ -74,6 +74,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -121,9 +124,11 @@
     <Compile Include="Domains\Model\StudentIdentity.cs" />
     <Compile Include="Domains\Model\Student.cs" />
     <Compile Include="MediatorHandlers\CreateMaterialElementHandler.cs" />
+    <Compile Include="MediatorHandlers\CompressFileHandler.cs" />
     <Compile Include="MediatorHandlers\DeleteStudentHandler.cs" />
     <Compile Include="Models\CommonResultModel.cs" />
     <Compile Include="Models\CreateMaterialElementModel.cs" />
+    <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\CreateStudentModel.cs" />
     <Compile Include="Models\UpdateStudentModel.cs" />
     <Compile Include="Models\DeleteStudentModel.cs" />
@@ -138,7 +143,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Demo.Framework\Demo.Framework.csproj">
       <Project>{F87549CF-1402-4CC0-BC2F-036A2DF3FF42}</Project>

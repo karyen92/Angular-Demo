@@ -34,9 +34,24 @@
                     </tbody>
                 </table>
             </div>
+
             <div class="row">
                 <label class="col-lg-12">Upload</label>
-                <input class="form-control col-lg-12" type="file" accept="image/*" />
+                <input class="form-control col-lg-12" type="file" accept="image/*" ngf-select ng-model="picFile" ngf-max-size="2MB" name="file" ng-change="upload(picFile)"/>
+            </div>
+            <div class="row">
+                <label class="col-lg-12">Preview</label>
+                <div class="col-lg-12">
+                    <div ng-show="!picFile">Nothing uploaded yet.</div>
+                   <img ngf-src="picFile"/>
+                </div>
+              
+            </div>
+            <div class="row">
+                <label class="col-lg-12">Server Side</label>
+                <div class="col-lg-12">
+                    <img data-ng-src="{{serverImg}}"/>
+                </div>
             </div>
         </form>
     </md-content>

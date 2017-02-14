@@ -24,6 +24,7 @@ namespace AugularJsFrameworkDemo.Areas.Students
                 "~/Scripts/angular-material/angular-material.js",
                 //angular ng file upload
                 "~/Scripts/ng-file-upload.js",
+                "~/Scripts/ng-file-upload-shim.js",
 
                 // ** APP MODULE ** //
 
