@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AugularJsFrameworkDemo.Apis.Students.Models;
-using AugularJsFrameworkDemo.Models;
-using Demo.Core.Command;
 using Demo.Core.Database.Model;
-using Demo.Core.Dtos;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
+using Demo.Core.Models;
+using Demo.Framework.Extensions;
+using Demo.Framework.Mediators;
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace AugularJsFrameworkDemo.Apis.Students
 {
@@ -18,35 +17,42 @@ namespace AugularJsFrameworkDemo.Apis.Students
     public class StudentsController : ApiController
     {
         private readonly IMongoDatabase _db;
-        public StudentsController(IMongoDatabase db)
+        private readonly IMediator _mediator;
+
+        public StudentsController(IMongoDatabase db,
+            IMediator mediator)
         {
             _db = db;
+            _mediator = mediator;
         }
+
         //public HttpResponseMessage Get([ApiQuery] StudentsRequestModel m)
         //{
         //    return Request.CreateResponse(HttpStatusCode.OK, new { data = "" });
         //}
-
         public HttpResponseMessage Get()
         {
-            var students = _db.GetCollection<StudentIdentity>("students").AsQueryable();
+            var collectionName = typeof(StudentIdentity).CollectionName();
+            var students = _db.GetCollection<StudentIdentity>(collectionName).AsQueryable();
 
             var data = students.Select(x => new StudentModel
             {
+                Id = x.Id,
                 Name = x.Name,
                 StudentId = x.StudentId,
                 Class = x.Class,
                 Courses = x.Courses.Select(y => y.CourseName + "-" + y.CourseCode)
             }).ToList();
-            return Request.CreateResponse(HttpStatusCode.OK, new { data});
+            return Request.CreateResponse(HttpStatusCode.OK, new { collection = data });
         }
 
         public HttpResponseMessage Get(string id)
         {
+            var courses = _db.GetCollection<Courses>(typeof(Courses).CollectionName()).AsQueryable();
+            StudentAddEditModel model;
             if (id == "0")
             {
-                var courses = _db.GetCollection<Courses>("courses").AsQueryable();
-                var model = new StudentAddEditModel
+                model = new StudentAddEditModel
                 {
                     Courses = courses.Select(x => new SelectCourseModel
                     {
@@ -57,41 +63,54 @@ namespace AugularJsFrameworkDemo.Apis.Students
                 return Request.CreateResponse(HttpStatusCode.OK, new { model });
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, new {  });
-        }
+            var student =
+                _db.GetCollection<StudentIdentity>(
+                    typeof(StudentIdentity).CollectionName())
+                    .FindAsync(x => x.Id == new ObjectId(id))
+                    .Result.SingleOrDefault();
 
-        public HttpResponseMessage Post([FromBody]SaveStudentDto data)
-        {
-            var command = new CreateStudentCommand(_db);
-            var output = command.Create(data);
-            return Request.CreateResponse(HttpStatusCode.OK, new
+            model = new StudentAddEditModel
             {
-                data = new CommonResultModel
+                Courses = courses.Select(x => new SelectCourseModel
                 {
-                    Success = output.Result.Success,
-                    Errors = output.Result.ValidationResults.Errors().Select(x => new ValidationError
-                    {
-                        PropertyName = x.Key,
-                        ErrorMessage = x.Value
-                    })
-                }
-            });
+                    CourseCode = x.CourseCode,
+                    CourseName = x.CourseName
+                }).ToList(),
+                Id = student.Id,
+                Name = student.Name,
+                StudentId = student.StudentId,
+                Class = student.Class
+            };
+            return Request.CreateResponse(HttpStatusCode.OK, new { model });
         }
 
-        //[HttpPost]
-        //[Route("Post")]
-        //public HttpResponseMessage Post([FromBody]SaveStudentDto data)
-        //{
-        //    try
-        //    {
-        //        CreateStudentCommand command = new CreateStudentCommand(_db);
-        //        command.Create(data);
-        //    }
-        //    catch(BsonException)
-        //    {
-                
-        //    }
-        //    return Request.CreateResponse(HttpStatusCode.OK, new { data = true });
-        //}
+        //update
+        public async Task<HttpResponseMessage> Put([FromBody]UpdateStudentModel data)
+        {
+            var output = await _mediator.SendAsync(data);
+            var response = output.ValidationResult.ValidationResponse();
+            
+            return Request.CreateResponse(response.Success ? HttpStatusCode.OK : HttpStatusCode.BadRequest, response);
+        }
+
+        //create
+        public async Task<HttpResponseMessage> Post([FromBody]CreateStudentModel data)
+        {
+            var output = await _mediator.SendAsync(data);
+            var response = output.ValidationResult.ValidationResponse();
+
+            return Request.CreateResponse(response.Success ? HttpStatusCode.OK : HttpStatusCode.BadRequest, response);
+        }
+
+        public async Task<HttpResponseMessage> Delete(string id)
+        {
+            var data = new DeleteStudentModel
+            {
+                Id = id
+            };
+            var output = await _mediator.SendAsync(data);
+            var response = output.ValidationResult.ValidationResponse();
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = true });
+        }
     }
 }

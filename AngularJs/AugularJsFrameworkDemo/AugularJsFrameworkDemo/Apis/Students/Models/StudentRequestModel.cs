@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using MongoDB.Bson;
 
 namespace AugularJsFrameworkDemo.Apis.Students.Models
 {
     public class StudentModel
     {
-        public string Id { get; set; }
+        public ObjectId Id { get; set; }
         public string Name { get; set; }
         public string StudentId { get; set; }
         public string Class { get; set; }
@@ -13,7 +14,7 @@ namespace AugularJsFrameworkDemo.Apis.Students.Models
 
     public class StudentAddEditModel
     {
-        public string Id { get; set; }
+        public ObjectId Id { get; set; }
         public string Name { get; set; }
         public string StudentId { get; set; }
         public string Class { get; set; }

@@ -15,6 +15,7 @@ namespace AugularJsFrameworkDemo
     public class MvcApplication : System.Web.HttpApplication
     {
         private static IWindsorContainer _container;
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -25,6 +26,8 @@ namespace AugularJsFrameworkDemo
             StudentsAreaBundleConfig.RegisterBundles(BundleTable.Bundles);
             FormAreaBundleConfig.RegisterBundles(BundleTable.Bundles);
             ContainerConfig.Register(GlobalConfiguration.Configuration, out _container);
+            ComponentConfig.Register(_container);
+            Startup.SetContainer(_container);
         }
     }
 }

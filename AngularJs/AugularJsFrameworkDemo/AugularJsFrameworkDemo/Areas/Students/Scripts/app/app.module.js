@@ -11,6 +11,7 @@
     angular.module('demo', [
         'ngRoute',
         'ui.router',
+        'ngMaterial',
         'demo.student',
         'demo.common'
     ]).config(['$httpProvider', '$stateProvider', '$urlRouterProvider',

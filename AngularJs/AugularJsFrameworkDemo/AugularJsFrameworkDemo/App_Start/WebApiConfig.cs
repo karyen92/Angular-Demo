@@ -40,6 +40,11 @@ namespace AugularJsFrameworkDemo
                 new { action = "Put" },
                 new { httpMethod = new HttpMethodConstraint(HttpMethod.Put) });
 
+            config.Routes.MapHttpRoute("DefaultApiDelete",
+                "api/{controller}",
+                new { action = "Delete" },
+                new { httpMethod = new HttpMethodConstraint(HttpMethod.Delete) });
+
             var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
 

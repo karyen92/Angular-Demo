@@ -9,13 +9,17 @@ namespace AugularJsFrameworkDemo
 {
     public class ContainerConfig
     {
-        public static void Register(HttpConfiguration httpConfiguration, out  IWindsorContainer container)
+        public static void Register(HttpConfiguration httpConfiguration, out IWindsorContainer container)
         {
             container = new WindsorContainer()
-                .Install(FromAssembly.This());
+                .Install(FromAssembly.This(),
+                FromAssembly.Named("Demo.Core"),
+                FromAssembly.Named("Demo.Framework"));
+
 
             var controllerFactory = new WindsorControllerFactory(container.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+
 
             GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new WindsorCompositionRoot(container));
         }

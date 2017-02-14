@@ -3,8 +3,8 @@
 
     angular.module('demo.core.resources').factory('studentService', ['$resource',
 	    function ($resource) {
-	        var exports = $resource("/AngularDemo/api/students/:formId/:verb", {
-	            formId: "@id"
+	        var exports = $resource("/AngularDemo/api/students/:id/:verb", {
+	            id: "@id"
 	        }, {
 	            update: {
 	                method: 'PUT'

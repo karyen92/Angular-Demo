@@ -1,0 +1,43 @@
+﻿<script type="text/ng-template" id="tpl.student.material">
+    <md-content layout-padding>
+        <form name="materialForm" ng-submit="create()">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div>
+                        <h4>Date</h4>
+                        <md-datepicker ng-model="model.date" md-placeholder="Select a date" md-open-on-focus></md-datepicker>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div flex-gt-xs>
+                        <h4>Dropdown</h4>
+                        <md-input-container>
+                            <md-select ng-model="model.dropdownId" placeholder="select something">
+                                <md-option><em>None</em></md-option>
+                                <md-option ng-repeat="dropdown in dropdowns" ng-value="dropdown.id">
+                                    {{dropdown.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <md-button class="md-raised md-primary" type="submit">SAVE</md-button>
+                </div>
+            </div>
+            <div class="row">
+                <table>
+                    <tbody>
+                        <tr ng-repeat="mat in materials">
+                            <td>{{mat.date | date: 'dd-MMM-yyyy'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <label class="col-lg-12">Upload</label>
+                <input class="form-control col-lg-12" type="file" accept="image/*" />
+            </div>
+        </form>
+    </md-content>
+</script>

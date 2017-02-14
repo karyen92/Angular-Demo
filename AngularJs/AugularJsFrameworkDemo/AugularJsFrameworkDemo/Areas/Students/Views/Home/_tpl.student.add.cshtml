@@ -1,55 +1,9 @@
 ﻿<script type="text/ng-template" id="tpl.student.add">
-    <form name="form" class="form-horizontal">
-        <h1>Add Student</h1>
+    <form name="form" class="form-horizontal" data-ng-submit="create()" >
+        <h1>{{ title }}</h1>
+        @Html.Partial("_tpl.student.form")
         <div class="col-md-12">
-            <div class="form-group">
-                <label class="control-label">Name</label>
-                <input name="name" class="form-control" ng-model="model.name" required />
-                <div ng-show="form.name.$submitted || form.name.$touched">
-                    <span class="text-danger" ng-show="form.name.$error.required">Please fill in student name.</span>
-                    <span class="text-danger" ng-show="form.name.$invalid">{{form.name.$error.message}}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="form-group">
-                <label class="control-label">Student ID</label>
-                <input name="studentId" class="form-control" ng-model="model.studentId" required />
-                <div ng-show="form.studentId.$submitted || form.studentId.$touched">
-                    <span class="text-danger" ng-show="form.studentId.$error.required">Please fill in Student ID.</span>
-                    <span class="text-danger" ng-show="form.studentId.$invalid">{{form.studentId.$error.message}}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="form-group">
-                <label class="control-label">Class</label>
-                <input name="class" class="form-control" ng-model="model.class" required />
-                <div ng-show="form.class.$submitted || form.class.$touched">
-                    <span class="text-danger" ng-show="form.class.$error.required">Please fill in student's class.</span>
-                    <span class="text-danger" ng-show="form.class.$invalid">{{form.class.$error.message}}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="form-group">
-                <label class="control-label">Courses</label>
-                <div name="courses" ng-repeat="course in model.courses">
-                    <div class="col-md-12">
-                        <label>
-                            <span>{{ course.courseName}}</span>&nbsp;
-                            <span>{{ course.courseCode}}</span>
-                        </label>
-                        <input type="checkbox" ng-model="course.isTick"/>
-                    </div>
-                </div>
-                <div ng-show="form.courses.$submitted || form.courses.$touched">
-                    <span class="text-danger" ng-show="form.courses.$invalid">{{form.courses.$error.message}}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <button class="btn btn-primary" ng-disabled="form.$untouched || form.$invalid" ng-click="save()">Save</button>
+            <input type="submit" value="Save" class="btn btn-primary" ng-disabled="form.$untouched || form.$invalid"/>
             <button class="btn btn-default" ng-click="back()">Cancel</button>
         </div>
     </form>

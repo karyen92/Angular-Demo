@@ -9,7 +9,7 @@ using Castle.Windsor;
 namespace AugularJsFrameworkDemo.Configs.Windsor
 {
     public class WindsorCompositionRoot : IHttpControllerActivator
-    {//o
+    {
         private readonly IWindsorContainer _container;
 
         public WindsorCompositionRoot(IWindsorContainer container)

@@ -10,21 +10,36 @@
         function ($stateProvider) {
 
             $stateProvider
+                  .state('material', {
+                      url: '/material',
+                      templateUrl: 'tpl.student.material',
+                      controller: 'MaterialController'
+                  })
                 .state('student', {
                     url: '/',
                     templateUrl: 'tpl.student.list',
-                    controller: 'StudentListController'
+                    controller: 'StudentController',
+                    params: {
+                        method: 'list'
+                    }
                 })
-            .state('view', {
-                url: '/ViewStudent',
-                templateUrl: 'tpl.student.view',
-                controller: 'StudentViewController'
-            })
-            .state('add', {
-                url: '/AddStudent',
-                templateUrl: 'tpl.student.add',
-                controller: 'StudentAddController'
-            });
+                .state('add', {
+                    url: '/AddStudent',
+                    templateUrl: 'tpl.student.add',
+                    controller: 'StudentController',
+                    params: {
+                        method: 'add'
+                    }
+                })
+                .state('edit', {
+                    url: '/EditStudent',
+                    templateUrl: 'tpl.student.add',
+                    controller: 'StudentController',
+                    params: {
+                        id: null,
+                        method: 'edit'
+                    }
+                });
         }]);
 
     angular.module('demo.student.controllers', ['demo.core.resources']);

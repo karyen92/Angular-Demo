@@ -5,6 +5,7 @@
 
     ['$rootScope', '$scope', '$filter', '$window', 'studentService', 'util', 'ephemeral', '$state', '$http',
         function ($rootScope, $scope, $filter, $window, studentService, util, ephemeral, $state, $http) {
+            $scope.title = "Add Student";
 
             studentService.get({ id: 0 }, function (data) {
                 $scope.model = data.model;

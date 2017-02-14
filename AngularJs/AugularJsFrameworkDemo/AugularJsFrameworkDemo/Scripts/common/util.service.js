@@ -5,13 +5,13 @@
         .factory('util', [
             '$window', function () {
                 return {
-                    mergeValidationError: function mergeValidationError(formScope, respData) {
-                        if (respData.errors) {
-                            for (var i in respData.errors) {
+                    mergeValidationError: function mergeValidationError(formScope, errors) {
+                        if (errors) {
+                            for (var i in errors) {
                                 for (var ind in formScope) {
-                                    if (ind.toLowerCase() == respData.errors[i].propertyName.toLowerCase()) {
+                                    if (ind.toLowerCase() == errors[i].propertyName.toLowerCase()) {
                                         formScope[ind].$invalid = true;
-                                        formScope[ind].$error.message = respData.errors[i].errorMessage;
+                                        formScope[ind].$error.message = errors[i].errorMessage;
                                     }
                                 }
                             }
